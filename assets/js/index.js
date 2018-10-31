@@ -11,7 +11,9 @@
   const play_icon = document.querySelector('#play i')
   const currentTime = document.getElementById('currentTime')
   const durationTime = document.getElementById('durationTime')
-  const progressMusic = document.getElementById('progress-music')
+  //const progressMusic = document.getElementsByClassName('slider-fill')[0]
+  //const progressMusic2 = document.getElementsByClassName('slider-handle')[0]
+
   let buffered = 0;
 
   const audioTimer = (timer) => {
@@ -29,18 +31,24 @@
   }
 
   play.addEventListener('click', () => {
+    const progressMusic = document.getElementsByClassName('slider-fill')[0]
+    const progressMusic2 = document.getElementsByClassName('slider-handle')[0]
+
     if (play_icon.classList.contains('fa-play-circle')) {
       play_icon.classList.remove('fa-play-circle')
       play_icon.classList.add('fa-pause-circle')
 
       if (audio.play()) {
         let timer = setInterval(() => {
-          buffered = (audio.currentTime / audio.duration * 100)
+          buffered = (Math.floor(audio.currentTime) / Math.floor(audio.duration) * 100)
           currentTime.innerHTML = audioTimer(audio.currentTime);
           progressMusic.style.width = buffered + '%';
+          progressMusic2.style.left = buffered + '%';
 
           if (audio.currentTime === audio.duration) {
             progressMusic.style.width = '0%'
+            progressMusic2.style.left = '0%';
+            currentTime.innerHTML = '00:00'
             play_icon.classList.remove('fa-pause-circle')
             play_icon.classList.add('fa-play-circle')
             audio.pause()
@@ -50,12 +58,15 @@
       }
     } else {
       audio.pause()
-      currentTime.innerHTML = '00:00'
       play_icon.classList.remove('fa-pause-circle')
       play_icon.classList.add('fa-play-circle')
     }
 
     console.log(Math.floor(audio.duration))
   })
+
+ /* document.getElementById('progress-rocka3').addEventListener('mousemove', (e) => {
+    console.log(e)
+  })*/
 
 })()

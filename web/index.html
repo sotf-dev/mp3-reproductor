@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.0/css/all.css"/>
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <title>Rocka 3</title>
   <link rel="stylesheet" href="../assets/css/style.css"/>
   <style>
     @font-face {
@@ -31,10 +29,12 @@
 </audio>
 
 <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
-  <div class="progress progress-rocka3">
-    <div class="progress-bar progress-music" role="progressbar" id="progress-music"></div>
-    <div id="pointer" class="pointer"></div>
-    <span class="pointer-focused"></span>
+  <div class="holder" style="width: 100%">
+    <div class="demo">
+      <div class="rkmd-slider slider-continuous slider-shadow slider-lightBlue slider-light">
+        <input type="range" min="0" max="175" value="0">
+      </div>
+    </div>
   </div>
 
   <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -44,17 +44,17 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">
-          <i class="fas fa-step-backward"></i>
+          <i class="far fa-backward" style="font-size: 1.2rem;"></i>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#" id="play">
-          <i class="fas fa-play-circle play-music"></i>
+          <i class="fal fa-play-circle play-music"></i>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link">
-          <i class="fas fa-step-forward"></i>
+          <i class="far fa-forward" style="font-size: 1.2rem;"></i>
         </a>
       </li>
 
@@ -64,16 +64,18 @@
 
       <li class="nav-item">
         <a class="nav-link">
-          <i class="fas fa-volume-up fa-lg"></i>
+          <i class="fal fa-volume-up fa-lg" id="volume-icon"></i>
         </a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link">
-          <div class="progress volume-rocka3">
-            <div class="progress-bar volume-music" role="progressbar"></div>
-            <div id="volume-pointer" class="pointer"></div>
-            <span class="pointer-focused"></span>
+          <div class="holder volume-rocka3">
+            <div class="demo">
+              <div class="rkmd-slider slider-continuous slider-shadow slider-lightBlue slider-light volume">
+                <input type="range" min="0" max="100" value="100">
+              </div>
+            </div>
           </div>
         </a>
       </li>
@@ -93,6 +95,8 @@
   </div>
 </nav>
 
+<script src="../assets/js/lib/jquery.min.js"></script>
+<script src="../assets/js/buffered.js"></script>
 <script src="../assets/js/index.js"></script>
 </body>
 </html>

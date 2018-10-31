@@ -98,6 +98,7 @@ ul > li {
   background-color: #e9ecef2e;
   overflow: inherit;
   cursor: pointer;
+  padding-right: 10px;
 }
 
 .volume-music {
@@ -108,8 +109,8 @@ ul > li {
 
 .play-music {
   font-size: 2.4em;
-  border: 4px solid #2196f347;
-  border-radius: 50%;
+  //border: 3px solid #2196f373;
+  //border-radius: 50%;
   padding-top: 1px;
 }
 

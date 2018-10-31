@@ -1,6 +1,10 @@
 // Bootstrap
-@import "../bootstrap/scss/bootstrap";
+@import "../../node_modules/bootstrap/scss/bootstrap";
 
+// Awesome
+@import "awesome/fontawesome";
+@import "global/ubuntu";
 //Custom
 @import "components/reproductor";
+@import "components/buffered";
 

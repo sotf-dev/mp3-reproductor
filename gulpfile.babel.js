@@ -8,11 +8,7 @@ const paths = {
     src: './assets/scss/style.scss',
     dest: './assets/css',
     watch: './assets/scss/**/*.scss'
-  },
-  bootstrap: {
-    src: './node_modules/bootstrap/**/*',
-    dest: './assets/bootstrap'
-  },
+  }
 };
 
 export const clean = () => del([ 'assets/css' ]);
@@ -24,16 +20,11 @@ export function styles() {
     .pipe(gulp.dest(paths.styles.dest));
 }
 
-export function bootstrap() {
-  return gulp.src(paths.bootstrap.src)
-    .pipe(gulp.dest(paths.bootstrap.dest));
-}
-
 function watch() {
   gulp.watch(paths.styles.watch, styles);
 }
 
-const build = gulp.series(clean, gulp.parallel(bootstrap), gulp.parallel(styles));
+const build = gulp.series(clean, gulp.parallel(styles));
 export default build;
 
 const dev = gulp.series(build, gulp.parallel(watch));

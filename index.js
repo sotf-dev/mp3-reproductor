@@ -3,41 +3,43 @@
   let buffered = 0;
 
   if (audio.readyState) {
+    document.getElementById('durationTime').innerHTML =  audioTimer(audio.duration)
     //alert('listo')
   }
 
   document.getElementById('play').addEventListener('click', () => {
-    audio.play();
-    let timer = setInterval(() => {
-      document.getElementById('time').innerHTML = audioTimer(audio.currentTime);
+    if (audio.play()) {
+      let timer = setInterval(() => {
+        document.getElementById('currentTime').innerHTML = audioTimer(audio.currentTime);
 
-      document.getElementById('progress-music').style.width = (audio.currentTime / audio.duration * 100)+ '%';
-      document.getElementById('buffered').innerHTML = (audio.buffered.length / audio.duration * 100)
-      
-      if (audio.currentTime === audio.duration) {
-        document.getElementById('progress-music').style.width = '0%'
-        audio.pause()
-        clearInterval(timer)
-      }
-    }, 1000)
+        document.getElementById('progress-music').style.width = (audio.currentTime / audio.duration * 100)+ '%';
+        //document.getElementById('buffered').innerHTML = (audio.buffered.length / audio.duration * 100)
 
+        if (audio.currentTime === audio.duration) {
+          document.getElementById('progress-music').style.width = '0%'
+          audio.pause()
+          clearInterval(timer)
+        }
+      }, 1000)
+    } else {
+      audio.pause();
+    }
     console.log(Math.floor(audio.duration))
 
-    document.getElementById('durate').innerHTML =  audioTimer(audio.duration)
   })
 
-  document.getElementById('pause').addEventListener('click', () => {
+  /*document.getElementById('pause').addEventListener('click', () => {
     audio.pause();
-  })
+  })*/
 
-  document.getElementById('vl+').addEventListener('click', () => {
+  /*document.getElementById('vl+').addEventListener('click', () => {
     audio.volume =  (8 / 10);
     alert(audio.volume)
   })
 
   document.getElementById('vl-').addEventListener('click', () => {
     audio.pause();
-  })
+  })*/
 
   function audioTimer(timer) {
     let hr  = Math.floor(timer / 3600);

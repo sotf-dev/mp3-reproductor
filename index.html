@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+
+<audio controls="controls" id="audio">
+  <source src="audio.mp3" type="audio/mpeg">
+</audio>
+
+<br>
+<br>
+
+<div class="container">
+  <div class="progress" style="height: 2px;">
+    <div class="progress-bar" role="progressbar" id="progress-music"></div>
+  </div>
+</div>
+
+<br>
+<br>
+
+<div id="play"><button>></button></div>
+<div id="pause"><button>||</button></div>
+<p id="time"></p>
+/
+<p id="durate"></p>
+
+buffered
+<p id="buffered"></p>
+
+<button id="vl+">+</button>
+<button id="vl-">-</button>
+
+<script src="index.js"></script>
+</body>
+</html>

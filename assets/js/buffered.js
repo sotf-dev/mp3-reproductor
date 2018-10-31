@@ -1,30 +1,11 @@
-/* -----------------------------------------------------
-  Material Design Sliders
-  CodePen URL: https://codepen.io/rkchauhan/pen/xVGGpR
-  By: Ravikumar Chauhan
-
-  Find me on:-
-  * Twitter: https://twitter.com/rkchauhan01
-  * Facebook: https://www.facebook.com/ravi032chauhan
-  * GitHub: https://github.com/rkchauhan
-  * CodePen: https://codepen.io/rkchauhan
-  * UpLabs: http://uplabs.com/rkchauhan01
-
-  Thanks to:-
-  * Google Material design - https://www.google.com/design/spec/material-design/introduction.html
-  * Google Material Color - https://www.google.com/design/spec/style/color.html
-  * Google Material Icons - https://design.google.com/icons/
-  * Roboto Font - https://google.com/fonts/specimen/Roboto
-  * jQuery - https://jquery.com
--------------------------------------------------------- */
 $(document).ready(function() {
-  $('.rkmd-slider').rkmd_rangeSlider();
+  $('.rkmd-slider').Buffered();
 });
 
 /* Range Slider Function */
 (function($) {
 
-  $.fn.rkmd_rangeSlider = function() {
+  $.fn.Buffered = function() {
     let self, curnt, sliderContinuous, range, slider;
     let volume = false;
     self = $(this);
@@ -52,9 +33,9 @@ $(document).ready(function() {
         return false;
       }
 
-      if ($(this).parents('.volume')) {
-        volume = true
-      }
+      let compare =  e
+
+      console.log(e.delegateTarget.id)
 
       const parents       = $(this).parents('.rkmd-slider');
       const slider_width  = parents.outerWidth();
@@ -68,10 +49,9 @@ $(document).ready(function() {
       const handlers = {
         mousemove: function(e) {
           const slider_new_width = e.pageX - slider_offset;
-         // alert('Move')
 
           if(slider_new_width <= slider_width && !(slider_new_width < '0')) {
-            if(volume) {
+            if(compare.delegateTarget.id === 'volumen-rock') {
               volumeRock(parents, slider_new_width, slider_width);
             } else {
               slider_move(parents, slider_new_width, slider_width);
@@ -80,37 +60,10 @@ $(document).ready(function() {
         },
         mouseup: function(e) {
           $(this).off(handlers);
+          volume = false
         }
       };
       $(document).on(handlers);
-    });
-
-    self.on('mousedown', '.slider', function(e) {
-      if(e.button === 2) {
-        return false;
-      }
-
-      const parents       = $(this).parents('.rkmd-slider');
-      const slider_width  = parents.outerWidth();
-      const slider_offset = parents.offset().left;
-      const check_range   = parents.find('input[type="range"]').is(':disabled');
-
-      if(check_range === true) {
-        return false;
-      }
-
-      const slider_new_width = e.pageX - slider_offset;
-      if(slider_new_width <= slider_width && !(slider_new_width < '0')) {
-        slider_move(parents, slider_new_width, slider_width);
-      }
-
-      const handlers = {
-        mouseup: function(e) {
-          $(this).off(handlers);
-        }
-      };
-      $(document).on(handlers);
-
     });
   };
 
@@ -128,7 +81,7 @@ $(document).ready(function() {
 
     const slider_fill    = parents.find('.slider-fill');
     const slider_handle  = parents.find('.slider-handle');
-    const range          = parents.find('input[type="range"]');
+    const range          = parents.find('input[type="range"].music');
 
     slider_fill.css('width', slider_new_val +'%');
     slider_handle.css({
@@ -139,18 +92,14 @@ $(document).ready(function() {
     });
 
     range.val(slider_new_val);
-
-    if(parents.hasClass('slider-discrete') === true) {
-      parents.find('.slider-handle span').text(slider_new_val);
-    }
+    console.log(audioTimer(slider_new_val))
   }
-
 
   const volumeRock = (parents, newW, sliderW) => {
     const volume = parseInt(Math.round(newW / sliderW * 100));
     const slider_fill    = parents.find('.slider-fill');
     const slider_handle  = parents.find('.slider-handle');
-    const range          = parents.find('input[type="range"]');
+    const range          = parents.find('input[type="range"].volumen');
     const audio = document.getElementById('audio')
     const volume_icon = document.getElementById('volume-icon')
 
@@ -178,6 +127,16 @@ $(document).ready(function() {
       volume_icon.classList.add('fa-volume-up')
       audio.volume = (volume / 100)
     }
+  }
+
+  const audioTimer = (timer) => {
+    let hr  = Math.floor(timer / 3600);
+    let min = Math.floor((timer - (hr * 3600))/60);
+    let sec = Math.floor(timer - (hr * 3600) -  (min * 60));
+
+    if (min < 10) { min = "0" + min; }
+    if (sec < 10) { sec  = "0" + sec; }
+    return min + ':' + sec;
   }
 
 }(jQuery));

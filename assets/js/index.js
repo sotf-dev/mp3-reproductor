@@ -11,8 +11,6 @@
   const play_icon = document.querySelector('#play i')
   const currentTime = document.getElementById('currentTime')
   const durationTime = document.getElementById('durationTime')
-  //const progressMusic = document.getElementsByClassName('slider-fill')[0]
-  //const progressMusic2 = document.getElementsByClassName('slider-handle')[0]
 
   let buffered = 0;
 
@@ -64,9 +62,5 @@
 
     console.log(Math.floor(audio.duration))
   })
-
- /* document.getElementById('progress-rocka3').addEventListener('mousemove', (e) => {
-    console.log(e)
-  })*/
 
 })()

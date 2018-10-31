@@ -10,7 +10,7 @@ body {
   /*flex-direction: column;*/
 }
 
-#pointer {
+.pointer {
   margin-left: -1px;
   width: 13px;
   height: 13px;
@@ -20,6 +20,7 @@ body {
   margin-top: -5px;
   cursor: pointer;
 }
+
 
 .pointer-focused {
   width: 23px;
@@ -71,3 +72,33 @@ ul > li {
 .audio-timer a {
   margin-top: 8px;
 }
+
+.progress-rocka3 {
+  height: 5px;
+  overflow: initial;
+  width: 98%;
+  background-color: #e9ecef2e
+}
+
+.progress-music {
+  background-color: #506f43!important;
+}
+
+#navbarCollapse {
+  margin-top: 10px;
+}
+
+.volume-rocka3 {
+  height: 3px;
+  width: 100px;
+  background-color: #e9ecef2e;
+  overflow: inherit;
+  cursor: pointer;
+}
+
+.volume-music {
+  width: 80%;
+  background-color: #506f43!important;
+}
+
+

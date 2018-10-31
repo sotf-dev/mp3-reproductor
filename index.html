@@ -31,20 +31,20 @@
 </audio>
 
 <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
-  <div class="progress" style="height: 5px;overflow: initial; width: 90%;background-color: #e9ecef2e">
-    <div class="progress-bar" role="progressbar" id="progress-music" style="background-color: #506f43!important;"></div>
-    <div id="pointer"></div>
+  <div class="progress progress-rocka3">
+    <div class="progress-bar progress-music" role="progressbar" id="progress-music"></div>
+    <div id="pointer" class="pointer"></div>
     <span class="pointer-focused"></span>
   </div>
 
-  <div class="collapse navbar-collapse" id="navbarCollapse" style="margin-top: 12px;">
+  <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mx-auto">
       <li class="nav-item active">
         <a class="nav-link" href="#" id="currentTime">00:00</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">
-          <i class="fas fa-step-backward fa-lg"></i>
+          <i class="fas fa-step-backward"></i>
         </a>
       </li>
       <li class="nav-item">
@@ -54,7 +54,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link">
-          <i class="fas fa-step-forward fa-lg"></i>
+          <i class="fas fa-step-forward"></i>
         </a>
       </li>
 
@@ -70,8 +70,10 @@
 
       <li class="nav-item">
         <a class="nav-link">
-          <div class="progress" style="height: 3px;width: 100px;background-color: #e9ecef2e;">
-            <div class="progress-bar" role="progressbar" style="width: 70%;background-color: #506f43!important;"></div>
+          <div class="progress volume-rocka3">
+            <div class="progress-bar volume-music" role="progressbar"></div>
+            <div id="volume-pointer" class="pointer"></div>
+            <span class="pointer-focused"></span>
           </div>
         </a>
       </li>

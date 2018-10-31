@@ -1,31 +1,43 @@
 (() => {
   const audio = document.getElementById('audio');
+  const play = document.getElementById('play');
+  const play_icon = document.querySelector('#play i')
+  const currentTime = document.getElementById('currentTime')
+  const durationTime = document.getElementById('durationTime')
+  const progressMusic = document.getElementById('progress-music')
   let buffered = 0;
 
   if (audio.readyState) {
-    document.getElementById('durationTime').innerHTML =  audioTimer(audio.duration)
-    //alert('listo')
+   durationTime.innerHTML =  audioTimer(audio.duration)
   }
 
-  document.getElementById('play').addEventListener('click', () => {
-    if (audio.play()) {
-      let timer = setInterval(() => {
-        document.getElementById('currentTime').innerHTML = audioTimer(audio.currentTime);
+  play.addEventListener('click', () => {
+    if (play_icon.classList.contains('fa-play-circle')) {
+      play_icon.classList.remove('fa-play-circle')
+      play_icon.classList.add('fa-pause-circle')
 
-        document.getElementById('progress-music').style.width = (audio.currentTime / audio.duration * 100)+ '%';
-        //document.getElementById('buffered').innerHTML = (audio.buffered.length / audio.duration * 100)
+      if (audio.play()) {
+        let timer = setInterval(() => {
+          buffered = (audio.currentTime / audio.duration * 100)
+          currentTime.innerHTML = audioTimer(audio.currentTime);
+          progressMusic.style.width = buffered + '%';
 
-        if (audio.currentTime === audio.duration) {
-          document.getElementById('progress-music').style.width = '0%'
-          audio.pause()
-          clearInterval(timer)
-        }
-      }, 1000)
+          if (audio.currentTime === audio.duration) {
+            progressMusic.style.width = '0%'
+            play_icon.classList.remove('fa-pause-circle')
+            play_icon.classList.add('fa-play-circle')
+            audio.pause()
+            clearInterval(timer)
+          }
+        }, 1000)
+      }
     } else {
-      audio.pause();
+      audio.pause()
+      play_icon.classList.remove('fa-pause-circle')
+      play_icon.classList.add('fa-play-circle')
     }
-    console.log(Math.floor(audio.duration))
 
+    console.log(Math.floor(audio.duration))
   })
 
   /*document.getElementById('pause').addEventListener('click', () => {

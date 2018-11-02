@@ -26,7 +26,6 @@
   },
   "homepage": "https://github.com/sotf-dev/web-app#readme",
   "dependencies": {
-    "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "@babel/register": "^7.0.0",
@@ -35,5 +34,9 @@
     "gulp": "^4.0.0",
     "gulp-clean-css": "^3.10.0",
     "gulp-sass": "^4.0.2"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.0.0",
+    "gulp-babel": "^8.0.0"
   }
 }

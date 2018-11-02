@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <title>Rocka 3</title>
   <link rel="stylesheet" href="../assets/css/style.css"/>
+  <!--<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>-->
+
   <style>
     @font-face {
       font-family: 'Techno Hideo';
@@ -21,14 +25,73 @@
 <body>
 
 <div class="container">
-  <h1 class="display-1 techno-hideo text-white" style="font-size: 12rem">Rocka 3</h1>
+  <img src="../assets/media/rocka3.png" class="rounded img-rounded" style="width: 80%;">
+
+  <div id="react"></div>
 </div>
 
 <audio id="audio">
-  <source src="../assets/media/audio.mp3" type="audio/mpeg">
+  <source src="../assets/media/audio2.mp3" type="audio/mpeg">
 </audio>
 
-<nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+
+<nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-rocka3-primary menu-rocka3" style="height: 56px;">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="../assets/media/r3.png" class="rocka3--logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto rocka3--menu-items">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Inicio</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            M&uacute;sica
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Videos</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Fotos</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contactanos</a>
+        </li>
+      </ul>
+    </div>
+
+    <ul class="navbar-nav ml-auto rocka3--menu--social-media">
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fab fa-facebook fa-lg"></i>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fab fa-instagram fa-lg"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+
+<!--Reproductor-->
+<nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-rocka3-primary rocka3--menu-reproductor">
   <div class="holder" style="width: 100%">
     <div class="demo">
       <div class="rkmd-slider slider-continuous slider-shadow slider-lightBlue slider-light" id="music-rock">
@@ -82,21 +145,26 @@
 
       <li class="nav-item" style="border-left: 1px solid #e9ecef2e;">
         <a class="nav-link">
-          <img src="../assets/media/rocka3.jpeg" style="width: 50px" class="rounded img-rounded shadow">
+          <img src="../assets/media/thumbnial.jpeg" style="width: 50px" class="rounded img-rounded shadow">
         </a>
       </li>
 
       <li class="nav-item" style="margin-left: -10px">
         <a class="nav-link">
-          The Offspring - The Kids Aren't Alright
+          <span class="rocka3--music--name"><i class="fas fa-music"></i> The Offspring - Why Don't You Get A Job</span>
+          <span class="rocka3--music--album"><i class="fas fa-folder-open"></i> Album Retos</span>
         </a>
       </li>
     </ul>
   </div>
 </nav>
 
+
+<script src="../assets/js/lib/react.development.js"></script>
+<script src="../assets/js/lib/react-dom.development.js"></script>
 <script src="../assets/js/lib/jquery.min.js"></script>
 <script src="../assets/js/buffered.js"></script>
 <script src="../assets/js/index.js"></script>
+<script src="../assets/js/react.js"></script>
 </body>
 </html>

@@ -38,7 +38,7 @@ const scripts = () => {
 
 const watch = () => {
   gulp.watch(paths.styles.watch, styles);
-  gulp.watch(paths.react.watch, styles);
+  gulp.watch(paths.react.watch, scripts);
 }
 
 const build = gulp.series(clean, gulp.parallel(styles, scripts));

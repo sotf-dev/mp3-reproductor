@@ -3,18 +3,65 @@ body {
   height: 100vh;
   background-color: rgb(40, 44, 52)!important;
 
-  display: flex;
+  /*display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  text-align: center;*/
   /*flex-direction: column;*/
 }
 
+.rocka3--banner--title {
+  margin-top: 57px;
+  padding: 15px;
+  font-family: 'Ubuntu', sans-serif;
+  /* background: #175594a1; */
+}
+
+.card--rocka--dark {
+  background-color: rgb(32, 35, 42) !important;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 240px;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border-radius: .25rem;
+  font-family: 'Ubuntu', sans-serif;
+  margin: 10px;
+  width: 240px;
+
+  .card-body {
+    text-align: center;
+  }
+
+  .card--rocka3-logo {
+    width: 120px;
+    display: flex;
+    margin: 0 auto;
+    color: #cfd1d2c2;
+  }
+
+  .card--rocka3--times {
+    &:hover {
+      color: rgba(255,255,255,.5);
+    }
+  }
+}
+
+.hr--rocka3 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(253, 249, 249, 0.1);
+}
+
+
 .menu-rocka3 {
   height: 56px;
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);
 
   .rocka3--logo {
-    width: 60px;
+    width: 160px;
   }
 
   ul.rocka3--menu-items {
@@ -59,6 +106,27 @@ body {
 .rocka3--menu-reproductor {
   ul {
     li {
+      &:nth-child(2), &:nth-child(4) {
+        i {
+          font-size: 1.2rem;
+        }
+      }
+
+      &:nth-child(8) {
+        border-left: 1px solid #e9ecef2e;
+      }
+
+      &:nth-child(9) {
+        margin-left: -10px;
+      }
+    }
+  }
+
+}
+
+.rocka3--menu-reproductor {
+  ul {
+    li {
       a {
         font-weight: bold;
       }
@@ -66,12 +134,19 @@ body {
   }
 }
 
+
 .bg-rocka3-primary {
   background-color: rgb(32, 35, 42) !important;
+  color: rgba(255,255,255,.5);
 }
 
 .bg-rocka3-secundary {
   background-color: rgb(40, 44, 52)!important;
+  color: rgba(255,255,255,.5);
+}
+
+.text--rocka--primary {
+  color: rgba(255,255,255,.5);
 }
 
 .pointer {
@@ -176,5 +251,13 @@ ul > li {
   //border: 3px solid #2196f373;
   //border-radius: 50%;
   padding-top: 1px;
+}
+
+.holder {
+  width: 100%;
+}
+
+.volume-music-slider {
+  width: 100px!important;
 }
 

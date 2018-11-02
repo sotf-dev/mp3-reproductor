@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const babel = require('gulp-babel');
+const concat = require('gulp-concat');
 const cleanCSS = require('gulp-clean-css');
 const del = require('del');
 

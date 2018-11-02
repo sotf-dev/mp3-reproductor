@@ -33,7 +33,9 @@
     "del": "^3.0.0",
     "gulp": "^4.0.0",
     "gulp-clean-css": "^3.10.0",
-    "gulp-sass": "^4.0.2"
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.1"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.0.0",

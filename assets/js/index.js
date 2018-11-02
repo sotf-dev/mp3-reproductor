@@ -6,12 +6,15 @@
  */
 
 (() => {
-  const audio = document.getElementById('audio');
+  //const audio = document.getElementById('audio');
+  //audio.setAttribute('src', '../assets/media/audio2.mp3')
+  const audio = new Audio()
+  audio.src = '../assets/media/audio2.mp3'
+
   const play = document.getElementById('play');
   const play_icon = document.querySelector('#play i')
   const currentTime = document.getElementById('currentTime')
   const durationTime = document.getElementById('durationTime')
-
   let buffered = 0;
 
   const audioTimer = (timer) => {
@@ -24,13 +27,14 @@
     return min + ':' + sec;
   }
 
-  if (audio.readyState) {
-   durationTime.innerHTML =  audioTimer(audio.duration)
-  }
+  //if (audio.readyState) {
+  //}
 
   play.addEventListener('click', () => {
     const progressMusic = document.getElementsByClassName('slider-fill')[0]
     const progressMusic2 = document.getElementsByClassName('slider-handle')[0]
+    const duration = audio.duration
+    durationTime.innerHTML =  audioTimer(duration)
 
     if (play_icon.classList.contains('fa-play-circle')) {
       play_icon.classList.remove('fa-play-circle')

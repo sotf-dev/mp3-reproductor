@@ -201,6 +201,27 @@ class Volume extends React.Component {
 
 
 class VolumeRange extends React.Component {
+  constructor(props) {
+    super(props);
+    this.progressMusic = null;
+    this.progressMusicAnimation = null;
+  }
+
+  componentDidMount() {
+    this.progressMusic = document.getElementsByClassName('slider-fill')[1];
+    this.progressMusicAnimation = document.getElementsByClassName('slider-handle')[1]; //Volume Start
+
+    this.progressMusic.style.width = '100%';
+    this.progressMusicAnimation.style.left = '100%';
+    this.volume();
+  }
+
+  volume() {
+    this.progressMusicAnimation.addEventListener('mousedown', () => {
+      alert('Luis');
+    });
+  }
+
   render() {
     return React.createElement("li", {
       className: "nav-item"
@@ -214,6 +235,7 @@ class VolumeRange extends React.Component {
       className: "rkmd-slider slider-continuous slider-shadow slider-lightBlue slider-ligh",
       id: "volumen-rock"
     }, React.createElement("input", {
+      ref: 'volume',
       type: "range",
       min: "0",
       max: "100"
@@ -286,4 +308,6 @@ class MusicPlayer extends React.Component {
  */
 
 
-ReactDOM.render(React.createElement(MusicPlayer, null), document.getElementById('music-player'));
+ReactDOM.render(React.createElement(MusicPlayer, {
+  music: ''
+}), document.getElementById('music-player'));

@@ -10,24 +10,6 @@ $(document).ready(function() {
     let volume = false;
     self = $(this);
 
-    sliderContinuous = $('.slider-continuous');
-    if(self.hasClass('slider-continuous') === true) {
-
-      sliderContinuous.each(function(i, v) {
-        curnt         = $(this);
-        curnt.append(sliderContinuous_tmplt());
-        range         = curnt.find('input[type="range"]');
-        slider        = curnt.find('.slider');
-        slider_fill   = slider.find('.slider-fill');
-        slider_handle = slider.find('.slider-handle');
-
-        const range_val = range.val();
-        slider_fill.css('width', range_val +'%');
-        slider_handle.css('left', range_val +'%');
-
-      });
-    }
-
     self.on('mousedown', '.slider-handle', function(e) {
       if(e.button === 2) {
         return false;

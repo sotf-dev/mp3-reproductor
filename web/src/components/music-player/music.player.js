@@ -170,6 +170,29 @@ class Volume extends React.Component {
  * Track Volume Music Range
  */
 class VolumeRange extends React.Component {
+  constructor (props) {
+    super(props)
+
+    this.progressMusic = null
+    this.progressMusicAnimation = null
+  }
+
+  componentDidMount() {
+    this.progressMusic = document.getElementsByClassName('slider-fill')[1]
+    this.progressMusicAnimation = document.getElementsByClassName('slider-handle')[1]
+
+    //Volume Start
+    this.progressMusic.style.width = '100%'
+    this.progressMusicAnimation.style.left = '100%'
+    this.volume()
+  }
+
+  volume() {
+    this.progressMusicAnimation.addEventListener('mousedown', () => {
+      alert('Luis')
+    })
+  }
+
   render () {
     return (
       <li className="nav-item">
@@ -178,7 +201,7 @@ class VolumeRange extends React.Component {
             <div className="demo">
               <div className="rkmd-slider slider-continuous slider-shadow slider-lightBlue slider-ligh"
                    id="volumen-rock">
-                <input type="range" min="0" max="100"/>
+                <input ref={'volume'} type="range" min="0" max="100"/>
 
                 <div className="slider volume-music-slider">
                   <div className="slider-fill"/>
@@ -255,6 +278,6 @@ class MusicPlayer extends React.Component {
  * Music Player App
  */
 ReactDOM.render(
-  <MusicPlayer/>,
+  <MusicPlayer music={''}/>,
   document.getElementById('music-player')
 )
